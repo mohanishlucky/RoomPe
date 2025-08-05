@@ -66,7 +66,7 @@ module.exports.createListing = async (req, res, next) => {
     let savedListing=await newlisting.save();
     console.log(savedListing);
     req.flash("success", "New Listing Created ⭐")
-    res.redirect("/listings");
+    res.redirect("/listings",{mapToken});
 }
 
 module.exports.editListing = async (req, res) => {
