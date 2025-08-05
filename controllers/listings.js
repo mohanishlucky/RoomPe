@@ -1,3 +1,4 @@
+require('dotenv').config();
 const Listing = require("../models/listing")
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 //✅ This imports the Mapbox Geocoding Service SDK module.
