@@ -3,9 +3,10 @@ const Listing = require("../models/listing")
 const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 //✅ This imports the Mapbox Geocoding Service SDK module.
 // It provides access to functions like forwardGeocode() (to convert addresses to coordinates).
-const mapToken = process.env.MAP_Token;
-console.log(mapToken)
-// This reads the Mapbox API token from your .env file using process.env.
+const mapToken = process.env.MAP_Token;// This reads the Mapbox API token from your .env file using process.env
+if (!process.env.MAP_Token) {
+    console.warn("⚠️ WARNING: MAP_Token not set in environment!");
+}
 const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 // Create a client to talk to Mapbox
 
