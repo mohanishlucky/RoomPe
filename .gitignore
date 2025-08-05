@@ -1,5 +1,14 @@
+# Ignore environment variables
 .env
+
+# Ignore dependencies folder
 node_modules/
+
+# Ignore entire classroom directory
 classroom/
+
+# Ignore specific file
 Beforeroute.js
+
+# Ignore notes directory
 notes/
