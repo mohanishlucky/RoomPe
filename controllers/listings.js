@@ -1,12 +1,12 @@
-// require('dotenv').config();
-// const Listing = require("../models/listing")
-// const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
+require('dotenv').config();
+const Listing = require("../models/listing")
+const mbxGeocoding = require('@mapbox/mapbox-sdk/services/geocoding');
 //✅ This imports the Mapbox Geocoding Service SDK module.
 // It provides access to functions like forwardGeocode() (to convert addresses to coordinates).
-// const mapToken = process.env.MAP_Token;
-// console.log(mapToken)
+const mapToken = process.env.MAP_Token;
+console.log(mapToken)
 // This reads the Mapbox API token from your .env file using process.env.
-// const geocodingClient = mbxGeocoding({ accessToken: mapToken });
+const geocodingClient = mbxGeocoding({ accessToken: mapToken });
 // Create a client to talk to Mapbox
 
 module.exports.index = async (req, res) => {
@@ -41,10 +41,10 @@ module.exports.showListing = async (req, res) => {
 }
 
 module.exports.createListing = async (req, res, next) => {
-//     let response = await geocodingClient.forwardGeocode({
-//     query: req.body.listing.location,  // Location text from user (e.g., "Delhi, India")
-//     limit: 1                            // Limit result to top 1 match
-// }).send();                              // Send the request to Mapbox servers
+    let response = await geocodingClient.forwardGeocode({
+    query: req.body.listing.location,  // Location text from user (e.g., "Delhi, India")
+    limit: 1                            // Limit result to top 1 match
+}).send();                              // Send the request to Mapbox servers
 
 // User submits a form with location like "Hyderabad, India"
 
@@ -61,7 +61,7 @@ module.exports.createListing = async (req, res, next) => {
     const newlisting = new Listing(req.body.listing);
     newlisting.owner = req.user._id;
     newlisting.image = { url, filename }
-    //  newlisting.geometry=response.body.features[0].geometry;
+     newlisting.geometry=response.body.features[0].geometry;
     let savedListing=await newlisting.save();
     console.log(savedListing);
     req.flash("success", "New Listing Created ⭐")
