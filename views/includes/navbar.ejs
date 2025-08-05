@@ -1,0 +1,68 @@
+<nav class="navbar navbar-expand-md border-bottom sticky-top"
+    style="background-color: #ffffff; box-shadow: 0 2px 8px rgba(0,0,0,0.05);">
+    <div class="container-fluid">
+        <a class="navbar-brand fw-bold" href="/listings" style="color: #FF385C; font-size: 1.5rem;">
+            <i class="fa-solid fa-compass me-1"></i>Roompe
+        </a>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+
+                <a class="nav-link" href="/listings" style="color: #222222; font-weight: 500; padding: 0.5rem 1rem;">
+                    Explore</a>
+
+            </div>
+            <!-- <div class="search-bar d-flex align-items-center justify-content-between px-2 py-1">
+                <div class="search-item">Anywhere</div>
+                <div class="divider"></div>
+                <div class="search-item">Any week</div>
+                <div class="divider"></div>
+                <div class="search-item text-muted">Add guests</div>
+                <button class="search-btn">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
+            </div> -->
+            <div class="search-bar-wrapper">
+                <form class="search-bar d-flex align-items-center justify-content-between px-2 py-1" action="/search"
+                    method="GET">
+                    <!-- Location Input -->
+                    <input type="text" name="location" class="search-item border-0" placeholder="Anywhere" required>
+
+                    <div class="divider"></div>
+
+                    <!-- Date Picker Input -->
+                    <input type="text" name="dates" class="search-item border-0" placeholder="Any week" required>
+
+                    <div class="divider"></div>
+
+                    <!-- Guests Input -->
+                    <input type="number" name="guests" class="search-item border-0" placeholder="Add guests" min="1">
+
+                    <!-- Search Button -->
+                    <button type="submit" class="search-btn">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </button>
+                </form>
+            </div>
+
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="/listings/new"
+                    style="color: #222222; font-weight: 500; padding: 0.5rem 1rem;">Airbnb your Home</a>
+                <%if(!currUser){%>
+                    <a class="nav-link" href="/signup"
+                        style="color: #222222; font-weight: 500; padding: 0.5rem 1rem;"><b>Sign Up</b></a>
+                    <a class="nav-link" href="/login"
+                        style="color: #222222; font-weight: 500; padding: 0.5rem 1rem;"><b>Login</b></a>
+                    <% }%>
+                        <%if(currUser){%>
+                            <a class="nav-link" href="/logout"
+                                style="color: #222222; font-weight: 500; padding: 0.5rem 1rem;"><b>Logout</b></a>
+                            <% }%>
+            </div>
+        </div>
+    </div>
+</nav>
