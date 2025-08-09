@@ -1,4 +1,4 @@
-# 🏠 RoomPe – Airbnb Style Room Booking Platform
+# 🏠 RoomPe 
 
 RoomPe is a **full-stack web application** inspired by Airbnb, allowing users to **list, search, and book rooms**.  
 It uses **EJS** for server-side templating, **Express.js** and **Node.js** for the backend, **Passport.js** for authentication and authorization, and follows the **MVC architecture** for clean and maintainable code.
