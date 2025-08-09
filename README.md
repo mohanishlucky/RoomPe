@@ -42,7 +42,5 @@ It uses **EJS** for server-side templating, **Express.js** and **Node.js** for t
 | **Multer / Cloudinary** | Image uploads |
 | **Bootstrap/Tailwind CSS** | Styling |
 
----
 
-## 📂 Project Structure
 
